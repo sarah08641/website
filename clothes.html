@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Outfit Maker</title>
+    <style>
+        /* CSS: The Layering Logic */
+        .wardrobe-app {
+            display: flex;
+            gap: 50px;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .preview-window {
+            position: relative; 
+            width: 500px;   /* Set your desired width here */
+            height: 700px;  /* Set your desired height here */
+            border: 2px solid #333;
+            background-color: #ffffff;
+            overflow: hidden; /* Keeps images from "spilling out" */
+            margin: 0 auto;   /* Centers the box on the page */
+        }
+
+        .layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+            display: block;
+        }
+        
+        .layer[src=""], .layer:not([src]) {
+            visibility: hidden;
+        }
+
+        /* Order matters: Higher z-index is on top */
+        #layer-body   { z-index: 1; }
+        #layer-pants  { z-index: 2; }
+        #layer-shirt  { z-index: 3; }
+        #layer-jacket { z-index: 4; }
+        #layer-hair { z-index: 5; }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 250px;
+                }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: -15px; /* Pulls the label closer to its box */
+            color: #444;
+        }
+
+        /* button {
+            padding: 10px;
+            cursor: pointer;
+            background: white;
+            border: 1px solid #999;
+            border-radius: 5px;
+        } */
+
+        button:hover { background: #e0e0e0; }
+    </style>
+</head>
+<body>
+
+    <div class="wardrobe-app">
+        <div class="preview-window">
+            <img id="layer-body"   class="layer" src="clothes/body.png">
+            <img id="layer-pants"  class="layer" src="">
+            <img id="layer-shirt"  class="layer" src="">
+            <img id="layer-jacket" class="layer" src="">
+            <img id="layer-hair" class="layer" src="clothes/hair.png">
+        </div>
+
+        <div class="menu">
+            <h2>Wardrobe</h2>
+            
+            <label for="shirt-select">Choose a Shirt:</label>
+            <select id="shirt-select" onchange="change('shirt', this.value)">
+                <option value="">-- None --</option>
+                <option value="clothes/tops/shirt_long_red.png">Long Sleeve Red </option>
+                <option value="clothes/tops/shirt_long_brown.png">Long Sleeve Brown Shirt</option>
+                <option value="clothes/tops/shirt_long_white.png">Long Sleeve White</option>
+                <option value="clothes/tops/shirt_long_black.png">Long Sleeve Black</option>
+                <option value="clothes/tops/shirt_long_green.png">Long Sleeve Green</option>
+                <option value="clothes/tops/babydoll_pink.png">Pink Babydoll</option>
+                <option value="clothes/tops/babydoll_red.png">Red Babydoll</option>
+                <option value="clothes/tops/babydoll_white.png">White Babydoll</option>
+                <option value="clothes/tops/offshoulder_green.png">Off-the-shoulder Green</option>
+                <option value="clothes/tops/offshoulder_short_black.png">Off-the-shoulder Black Tee</option>
+            </select>
+
+            <label for="pants-select">Choose Pants:</label>
+            <select id="pants-select" onchange="change('pants', this.value)">
+                <option value="">-- None --</option>
+                <option value="clothes/bottoms/bootcut_blue.png">Blue Bootcut</option>
+                <option value="clothes/bottoms/bootcut_light.png">Light Bootcut</option>
+                <option value="clothes/bottoms/flare_brown.png">Brown Flare</option>
+                <option value="clothes/bottoms/skirt_brown.png">Brown Skirt</option>
+                <option value="clothes/bottoms/skirt_black.png">Black Skirt</option>
+                <option value="clothes/bottoms/shorts_brown.png">Brown Shorts</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        /* JS: The Interaction Logic */
+        function change(slot, filePath) {
+            // Find the image tag by its ID
+            const layer = document.getElementById('layer-' + slot);
+            // Change the image source to your file
+            layer.src = filePath;
+        }
+
+        function clearLayer(slot) {
+            document.getElementById('layer-' + slot).src = "";
+        }
+    </script>
+
+</body>
+</html>
