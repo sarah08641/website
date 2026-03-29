@@ -12,16 +12,16 @@ h2 { color: white; text-align: center; }
 h6 { color: antiquewhite; text-align: center; }
 
 p {
-    color: rgb(82, 99, 255);
+    color: rgb(255, 255, 255);
     text-align: center;
 }
 
 div {
-    border: 1px solid rgb(4, 218, 218);
+    border: 1px solid rgba(0, 0, 0, 0);
     text-align: center;
-    color: yellowgreen;
+    color: rgb(0, 0, 0);
     margin: 10px auto; /* Centers the div box itself */
-    width: 50%;
+    width: 20%;
 }
 
 label {
@@ -45,6 +45,16 @@ img {
     margin: 20px auto; /* Centers the image */
 }
 
+.callout-box {
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    border: 2px solid #000;
+
+
+
+
+}
+
 .nav-button {
     display: inline-block;
     padding: 12px 24px;
@@ -59,9 +69,29 @@ img {
     margin: 10px; /* Added some breathing room around the button */
 }
 
+.fun-button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    background-color: #D3A400;
+    color: rgb(70, 70, 70);
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    font-family: 'Courier New', Courier, monospace;
+    transition: 0.3s;
+    margin: 10px; /* Added some breathing room around the button */
+}
+
 .nav-button:hover {
-    background-color: #000;
-    color: #ff69b4;
+    color: #000000;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.fun-button:hover {
+    color: #000000;
     cursor: pointer;
     transform: scale(1.1);
 }
