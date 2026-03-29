@@ -33,6 +33,19 @@
         border-radius: 8px;
         }
 
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            width: 60%;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            /* Hide if empty */
+            display: none; 
+        }
+
         .section {
         margin-bottom: 30px;
         text-align: center;
@@ -99,6 +112,7 @@
         <p>example words: ʁəgaʁde - regarde</p>
         <p>example words: nwaʁ - noir</p>
         <p>example words: bj~ɛ - bein</p>
+        <p>note: nasalization symbol goes before the vowel</p>
         <input type="text" name="english" id="english" placeholder="Type English here..." />
         <button py-click="translate_english">Translate</button>
 
