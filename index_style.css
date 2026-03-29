@@ -1,7 +1,10 @@
 body {
     text-align: center; /* Standard centering */
-    background-image: url("https://t3.ftcdn.net/jpg/02/64/27/90/360_F_264279006_WDXxV3OHjAOoHqH7iiLDrg23p0947g7U.jpg");
+    background-image: url("warp_still.jpg");
     background-attachment: fixed; /* Optional: keeps the stars still while you scroll */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 h1 { color: cyan; text-align: center; }
@@ -46,8 +49,8 @@ img {
     display: inline-block;
     padding: 12px 24px;
     text-decoration: none;
-    background-color: #ff69b4;
-    color: white;
+    background-color: #D3A400;
+    color: rgb(70, 70, 70);
     font-weight: bold;
     border-radius: 8px;
     border: 2px solid #000;
