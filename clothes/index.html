@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>My Outfit Maker</title>
     <style>
+        * { font-family: 'Georgia', serif; }
+        * {color: #636363}
+        body {
+            background-color: pink;
+        }
         /* CSS: The Layering Logic */
         .wardrobe-app {
             display: flex;
@@ -65,16 +70,16 @@
         label {
             font-weight: bold;
             margin-bottom: -15px; /* Pulls the label closer to its box */
-            color: #444;
         }
 
-        /* button {
+        button {
             padding: 10px;
             cursor: pointer;
-            background: white;
+            background: rgb(255, 233, 237);
             border: 1px solid #999;
             border-radius: 5px;
-        } */
+            font-weight: bold;
+        } 
 
         button:hover { background: #e0e0e0; }
     </style>
@@ -98,7 +103,7 @@
             <select id="shirt-select" onchange="change('shirt', this.value)">
                 <option value="">-- None --</option>
                 <option value="images/tops/shirt_long_red.png">Long Sleeve Red </option>
-                <option value="images/tops/shirt_long_brown.png">Long Sleeve Brown Shirt</option>
+                <option value="images/tops/shirt_long_brown.png">Long Sleeve Brown</option>
                 <option value="images/tops/shirt_long_white.png">Long Sleeve White</option>
                 <option value="images/tops/shirt_long_black.png">Long Sleeve Black</option>
                 <option value="images/tops/shirt_long_green.png">Long Sleeve Green</option>
@@ -125,6 +130,7 @@
                 <option value="images/bottoms/bootcut_light.png">Light Bootcut</option>
                 <option value="images/bottoms/flare_brown.png">Brown Flare</option>
                 <option value="images/bottoms/wideleg_brown.png">Brown Wideleg</option>
+                <option value="images/bottoms/baggy_blue.png">Blue Baggy</option>
                 <option value="images/bottoms/skirt_brown.png">Brown Skirt</option>
                 <option value="images/bottoms/skirt_black.png">Black Skirt</option>
                 <option value="images/bottoms/shorts_brown.png">Brown Shorts</option>
@@ -140,11 +146,12 @@
                 <option value="images/shoes/wedges_tan.png">Tan Wedges</option>
    
             </select>
+
+            <button class="nav-button" onclick="randomize()">Randomize Outfit</button>
         </div>
     </div>
 
     <script>
-        /* JS: The Interaction Logic */
         function change(slot, filePath) {
             // Find the image tag by its ID
             const layer = document.getElementById('layer-' + slot);
@@ -155,6 +162,36 @@
         function clearLayer(slot) {
             document.getElementById('layer-' + slot).src = "";
         }
+
+        function randomize() {
+            const categories = ['shirt-select', 'jacket-select', 'bottoms-select', 'shoes-select'];
+
+            categories.forEach(id => {
+                const select = document.getElementById(id);
+                
+                // Get all options in this dropdown
+                const options = select.options;
+                
+                let randomIndex;
+        
+                // Makes sure "None" is not an option for shirt and bottom
+                if (id === 'shirt-select' || id === 'bottoms-select') {
+                    // Pick a number between 1 and the last index
+                    randomIndex = Math.floor(Math.random() * (options.length - 1)) + 1;
+                } else {
+                    // Jackets and shoes can still be "None" (index 0)
+                    randomIndex = Math.floor(Math.random() * options.length);
+                }
+                
+                // Set the dropdown to that random choice
+                select.selectedIndex = randomIndex;
+
+                // Trigger the change function to update the image on the character
+                // We split the ID (e.g., 'shirt-select') to get just 'shirt'
+                const slot = id.split('-')[0]; 
+                change(slot, select.value);
+            });
+}
     </script>
 
 </body>
