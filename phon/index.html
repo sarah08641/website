@@ -44,6 +44,21 @@
         color: #444;
         }
 
+        .keyboard-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px; /* Space between the two keyboards */
+        flex-wrap: wrap; /* Allows stacking if the screen is too narrow */
+
+        }
+
+        /* Optional: Make each section take up equal space or have a max width */
+        .section {
+        flex: 1;
+        min-width: 300px;
+        }
+
         .keyboard-row {
         display: flex;
         justify-content: center;
@@ -88,6 +103,7 @@
         <button py-click="translate_english">Translate</button>
 
         <div id="output"></div>
+        <div class="keyboard-container">
         <div class="keyboard">
             <!-- Consonants -->
             <div class="section">
@@ -127,8 +143,10 @@
                 <button class="key">ɥ</button>
                 </div>
             </div>
+            </div>
 
             <!-- Vowels -->
+            <div class="keyboard-container">
             <div class="section">
                 <h2>Vowels</h2>
                 <div class="keyboard-row">
@@ -154,15 +172,17 @@
                 <button class="key">ʌ</button>
                 </div>
             </div>
+            </div>
 
             <!-- Diacritics -->
+            <div class="keyboard-container">
             <div class="section">
                 <h2>nasalize</h2>
                 <div class="keyboard-row">
                 <button class="key">~</button>
                 </div>
             </div>
-
+        </div>
         </div>
 
         <script>
