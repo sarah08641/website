@@ -1,3 +1,6 @@
+* { font-family: 'Courier New', monospace}
+* { color: white}
+
 body {
     text-align: center; /* Standard centering */
     background-image: url("warp_still.jpg");
@@ -7,9 +10,9 @@ body {
     background-position: center;
 }
 
-h1 { color: cyan; text-align: center; }
+/* h1 { color: cyan; text-align: center; }
 h2 { color: white; text-align: center; }
-h6 { color: antiquewhite; text-align: center; }
+h6 { color: antiquewhite; text-align: center; } */
 
 p {
     color: rgb(255, 255, 255);
@@ -21,23 +24,9 @@ div {
     text-align: center;
     color: rgb(0, 0, 0);
     margin: 10px auto; /* Centers the div box itself */
-    width: 20%;
+    width: 100%;
 }
 
-label {
-    color: fuchsia; /* Added semicolon */
-}
-
-input[type=text] {
-    width: 20%;
-    padding: 5px 10px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid black;
-    background-color: whitesmoke;
-    color: black;
-    border-radius: 2px;
-}
 
 /* Updated to "img" and removed background-image conflict */
 img {
@@ -45,53 +34,55 @@ img {
     margin: 20px auto; /* Centers the image */
 }
 
-.callout-box {
-    backdrop-filter: blur(5px);
-    border-radius: 8px;
-    border: 2px solid #000;
-
-
-
-
+.footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    
 }
 
-.nav-button {
+
+.warp-button {
+    background: none;    /* Removes the gray/white background */
+    border: none;        /* Removes the 3D or flat border */
+    padding: 0;          /* Removes the internal spacing around the image */
+    cursor: pointer;     /* Ensures the "pointy hand" appears */
+
     display: inline-block;
-    padding: 12px 24px;
-    text-decoration: none;
-    background-color: #D3A400;
-    color: rgb(70, 70, 70);
-    font-weight: bold;
-    border-radius: 8px;
-    border: 2px solid #000;
-    font-family: 'Courier New', Courier, monospace;
-    transition: 0.3s;
-    margin: 10px; /* Added some breathing room around the button */
+    text-decoration: none; /* Removes underlines */
+    line-height: 0;        /* Removes the tiny "text gap" at the bottom of images */
+    vertical-align: top;
+    transition: transform 0.2s;
 }
 
-.fun-button {
-    display: inline-block;
-    padding: 12px 24px;
-    text-decoration: none;
-    background-color: #D3A400;
-    color: rgb(70, 70, 70);
-    font-weight: bold;
-    font-size: 25px;
-    border-radius: 8px;
-    border: 2px solid #000;
-    font-family: 'Courier New', Courier, monospace;
-    transition: 0.3s;
-    margin: 10px; /* Added some breathing room around the button */
+.warp-button img {
+    display: block;        
+    width: auto;          
+    max-width: 550px;      
+    height: auto;          
 }
 
-.nav-button:hover {
-    color: #000000;
-    cursor: pointer;
-    transform: scale(1.1);
+
+.image-button {
+    display: inline-block; /* Allows the link to take the shape of the image */
+    text-decoration: none; /* Removes underlines */
+    line-height: 0;        /* Removes the tiny "text gap" at the bottom of images */
+    transition: transform 0.2s;
 }
 
-.fun-button:hover {
-    color: #000000;
-    cursor: pointer;
-    transform: scale(1.1);
+.image-button img {
+    display: block;        /* Prevents weird spacing issues */
+    width: auto;           /* Tells it to use the file's natural width */
+    max-width: 250px;      /* Optional: Safety cap so it doesn't get TOO big */
+    height: auto;          /* Keeps the proportions perfect */
+}
+
+.image-button:hover {
+    transform: scale(1.05); 
+}
+
+.warp-button:hover {
+    transform: scale(1.05); 
+
 }
