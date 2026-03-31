@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blob Blind Box</title>
+    <style>
+        
+        body {
+            background-color: rgb(255, 242, 225);
+        }
+        img {
+            position: absolute;
+            width: 50%;         /* Allows it to shrink on small screens (phones) */
+            height: auto;        /* Maintains the natural aspect ratio so it's not squished */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+        }
+        button {
+            position: relative;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: rgba(255, 255, 255, 0.371);
+            color: rgb(0, 0, 0);
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            margin: auto; 
+        }
+        button:hover {
+            transform: scale(1.05)
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <img id="blob-img" src="images/box.png"/>
+    <button id="open-box">Open Blind Box</button>
+
+</body>
+
+<script>
+    const btn = document.getElementById('open-box');
+    const blobImg = document.getElementById('blob-img');
+    const blobs = [
+        'images/bubblegum_blob.gif',
+        'images/water_blob.gif',
+        'images/forest_blob.gif',
+        'images/butter_blob.gif',
+        'images/lavender_blob.gif'
+    ];
+
+    const blobSettings = [
+        {path: 'images/bubblegum_blob.gif', weight: 20},
+        {path: 'images/water_blob.gif', weight: 30},
+        {path: 'images/forest_blob.gif', weight: 30},
+        {path: 'images/lavender_blob.gif', weight: 5},
+        {path: 'images/butter_blob.gif', weight: 15}
+    ];
+    btn.addEventListener('click', () => {
+        let pool = [];
+        blobSettings.forEach(blob => {
+            for (let i = 0; i < blob.weight; i++) {
+                pool.push(blob.path);
+            }
+        });
+
+        // 3. Pick from the pool (which now has 100 items)
+        const randomIndex = Math.floor(Math.random() * pool.length);
+        const selectedBlob = pool[randomIndex];
+        blobImg.src = selectedBlob;
+        // alert('You opened a new Blob!');
+        // Here you could change the img src to a different blob
+        btn.textContent = "You got " + selectedBlob.replace(/images\/|\.gif/g, "").replace("_", " ") + "!";
+        btn.disabled = true;
+    }, {once: true});
+
+</script>
