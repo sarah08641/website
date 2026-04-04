@@ -788,7 +788,7 @@ fsa = {
 def output_text(b: bool) -> str:
     return "Valid French Word" if b else "Not a Valid French Word"
 
-def translate_english(event):
+def parse(event):
     input_text = document.querySelector("#english")
     english = input_text.value
     output_div = document.querySelector("#output")

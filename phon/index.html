@@ -8,6 +8,50 @@
         <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
     </head>
     <style>
+
+/* Container for the top info */
+.header-card {
+    background: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 2px;
+    padding: 30px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.header-card h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+    letter-spacing: -1px;
+}
+
+.header-card h2 {
+    color: #7f8c8d;
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.example-tag {
+    color: #3c3c3c;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 0.95rem;
+    border: 1px solid #747474;
+}
+
+.info-note {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+
         body {
         font-family: Arial, sans-serif;
         display: flex;
@@ -82,59 +126,91 @@
         .key {
         background: #f4f4f9;
         border: 2px solid #ccc;
-        border-radius: 10px;
-        padding: 10px 14px;
-        font-size: 1.3rem;
+        border-radius: 2px;
+        /* padding: 10px 14px; */
+        font-size: 1.2rem;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
+
+        box-shadow: 0 4px 0 #929292; 
+        transition: all 0.1s;
+        position: relative;
+        outline: none;
         }
 
-        .key:hover {
+        /* .key:hover {
         background: #e0e0f7;
         border-color: #888;
         transform: translateY(-2px);
         box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-        }
+        } */
 
         .key:active {
-        background: #d1d1f0;
-        transform: translateY(1px);
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        background: #f4f4f9;
+        transform: translateY(4px);
+        /* box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); */
         }
 
         .nav-button {
             display: inline-block;
-            padding: 12px 24px;
-            text-decoration: none;
-            background-color: #ff69b4;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
-            border: 2px solid #000;
-            font-family: 'Courier New', Courier, monospace;
+            /* padding: 12px 24px; */
+            border-radius: 2px;
+            border: 1px solid #000;
             transition: 0.3s;
             margin: 10px; /* Added some breathing room around the button */
+            cursor: pointer;
+
+            box-shadow: 0 4px 0 #929292; 
+            transition: all 0.1s;
+            position: relative;
+            outline: none;
         }
 
-        .nav-button:hover {
-            background-color: #000;
-            color: #ff69b4;
-            cursor: pointer;
-            transform: scale(1.1);
-        }
+        .nav-button:active {
+            /* Move the button down 4 pixels */
+            transform: translateY(4px);
+            /* Reduce the shadow so it looks like it hit the floor */
+            box-shadow: 0 2px 0 #303030;
+            }
 
         .section {
         max-width: 800px;
         }
     </style>
     <body>
-        <h1>Valid French Word?</h1>
+
+
+
+        <div class="header-card">
+    <h1>Valid French Word?</h1>
+    <h2>Linguistic Phonology Acceptor</h2>
+    
+    <p>
+        Try: 
+        <span class="example-tag">ʁəgaʁde</span> (regarde) &bull; 
+        <span class="example-tag">nwaʁ</span> (noir) &bull; 
+        <span class="example-tag">bj~ɛ</span> (bien)
+    </p>
+
+    <div class="info-note">
+        Note: The nasalization symbol <strong>~</strong> must precede the vowel.
+    </div>
+</div>
+
+<div class="input-zone">
+    <input type="text" name="input" id="input" placeholder="Enter IPA symbols..." />
+    <button py-click="parse" class="nav-button">evaluate</button> 
+</div>
+
+
+
+        <!-- <h1>Valid French Word?</h1>
         <h2>This program checks whether a sequence of sounds are acceptable in French phonology</h2>
         <p>example words: ʁəgaʁde - regarde, nwaʁ - noir, bj~ɛ - bein</p>
 
         <p>note: nasalization symbol goes before the vowel</p>
-        <input type="text" name="english" id="english" placeholder="Type English here..." />
-        <button py-click="translate_english">Translate</button>
+        <input type="text" name="input" id="input" placeholder="Type word here..." />
+        <button py-click="parse" class="nav-button">evaluate</button>  -->
 
         <div id="output"></div>
         <div class="keyboard-container">
@@ -220,18 +296,21 @@
         </div>
 
         <script>
-        const englishInput = document.getElementById("english");
+        const input = document.getElementById("input");
+        const nonoWords = [
+
+        ]
         document.querySelectorAll(".key").forEach(key => {
             key.addEventListener("click", () => {
             // insert symbol at cursor instead of just appending
-            const start = englishInput.selectionStart;
-            const end = englishInput.selectionEnd;
-            const text = englishInput.value;
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+            const text = input.value;
             const symbol = key.textContent;
 
-            englishInput.value = text.slice(0, start) + symbol + text.slice(end);
-            englishInput.selectionStart = englishInput.selectionEnd = start + symbol.length;
-            englishInput.focus();
+            input.value = text.slice(0, start) + symbol + text.slice(end);
+            input.selectionStart = input.selectionEnd = start + symbol.length;
+            input.focus();
             });
         });
         </script>
