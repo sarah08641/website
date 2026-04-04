@@ -35,6 +35,16 @@
             border-radius: 15px;
             text-align: right;    /* Aligns text to the right for a clean look */
         }
+        button-hidden {
+            color: rgb(255, 242, 225);
+            border-radius: 30px;
+            position: absolute;
+            left: 20px;          /* Distance from the right edge */
+            bottom: 20px;             /* Start at the middle vertically */
+            transform: translateY(-50%); /* Perfectly center it vertically */
+            cursor: pointer;
+
+        }
         button {
             position: relative;
             padding: 15px 30px;
@@ -67,14 +77,16 @@
         <p>Lavender Blob: 5%</p>
         <p>Midnight Blob: 5%</p>
         <p>Shy Blob: 2%</p>
-
     </div>
+    <button-hidden id="shy-button">I'm hiding...</button-hidden>
 
 </body>
 
 <script>
     const btn = document.getElementById('open-box');
+    const hiddenBtn = document.getElementById('shy-button');
     const blobImg = document.getElementById('blob-img');
+
     const blobs = [
         'images/bubblegum_blob.gif',
         'images/water_blob.gif',
@@ -93,6 +105,16 @@
         {path: 'images/shy_blob.gif', weight: 2},
         {path: 'images/midnight_blob.gif', weight: 5}
     ];
+    hiddenBtn.addEventListener('click', () => {
+        oldImage = blobImg.src;
+        blobImg.src = 'images/shy_blob.gif';
+        alert("You found shy blob!");
+        setTimeout(() => {
+            blobImg.src = oldImage;
+        }, 2000);
+
+
+    });
     btn.addEventListener('click', () => {
         let pool = [];
         blobSettings.forEach(blob => {
