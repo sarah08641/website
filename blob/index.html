@@ -86,6 +86,7 @@
     const btn = document.getElementById('open-box');
     const hiddenBtn = document.getElementById('shy-button');
     const blobImg = document.getElementById('blob-img');
+    let blobSettings;
 
     const blobs = [
         'images/bubblegum_blob.gif',
@@ -96,15 +97,30 @@
         'images/shy_blob.gif'
     ];
 
-    const blobSettings = [
-        {path: 'images/bubblegum_blob.gif', weight: 20},
-        {path: 'images/water_blob.gif', weight: 25},
-        {path: 'images/forest_blob.gif', weight: 28},
-        {path: 'images/lavender_blob.gif', weight: 5},
-        {path: 'images/butter_blob.gif', weight: 15},
-        {path: 'images/shy_blob.gif', weight: 2},
-        {path: 'images/midnight_blob.gif', weight: 5}
-    ];
+    const currentHour = new Date().getHours();
+
+    if(currentHour > 6 && currentHour < 19) {
+        blobSettings = [
+            {path: 'images/bubblegum_blob.gif', weight: 20},
+            {path: 'images/water_blob.gif', weight: 25},
+            {path: 'images/forest_blob.gif', weight: 28},
+            {path: 'images/lavender_blob.gif', weight: 9},
+            {path: 'images/butter_blob.gif', weight: 15},
+            {path: 'images/shy_blob.gif', weight: 2},
+            {path: 'images/midnight_blob.gif', weight: 1}
+            ]
+    } else {
+        blobSettings = [
+            {path: 'images/bubblegum_blob.gif', weight: 15},
+            {path: 'images/water_blob.gif', weight: 20},
+            {path: 'images/forest_blob.gif', weight: 23},
+            {path: 'images/lavender_blob.gif', weight: 5},
+            {path: 'images/butter_blob.gif', weight: 5},
+            {path: 'images/shy_blob.gif', weight: 2},
+            {path: 'images/midnight_blob.gif', weight: 30}
+        ]
+    }
+
     hiddenBtn.addEventListener('click', () => {
         oldImage = blobImg.src;
         blobImg.src = 'images/shy_blob.gif';
