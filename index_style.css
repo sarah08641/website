@@ -1,5 +1,10 @@
-* { font-family: 'Courier New', monospace}
-* { color: white}
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* { 
+    font-family: 'Press Start 2P', system-ui, cursive;
+    color: white;
+    
+}
+
 
 body {
     text-align: center; /* Standard centering */
