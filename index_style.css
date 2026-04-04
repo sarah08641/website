@@ -3,7 +3,7 @@
 
 body {
     text-align: center; /* Standard centering */
-    background-image: url("warp_still.jpg");
+    background-image: url("images/warp_still.jpg");
     background-attachment: fixed; /* Optional: keeps the stars still while you scroll */
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,7 +74,7 @@ img {
 .image-button img {
     display: block;        /* Prevents weird spacing issues */
     width: auto;           /* Tells it to use the file's natural width */
-    max-width: 250px;      /* Optional: Safety cap so it doesn't get TOO big */
+    max-width: 300px;      /* Optional: Safety cap so it doesn't get TOO big */
     height: auto;          /* Keeps the proportions perfect */
 }
 
