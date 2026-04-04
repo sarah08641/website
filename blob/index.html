@@ -110,24 +110,4 @@
         btn.textContent = "You got " + selectedBlob.replace(/images\/|\.gif/g, "").replace("_", " ") + "!";
         btn.disabled = true;
     }, {once: true});
-
-    // Function to set a cookie
-    function setCookie(name, value, minutes) {
-        const date = new Date();
-        date.setTime(date.getTime() + (minutes * 60 * 1000));
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    // Function to get a cookie
-    function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i].trim();
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
 </script>
