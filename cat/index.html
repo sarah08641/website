@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cat</title>
+    <style>
+        * { font-family: 'Georgia', serif; }
+
+
+
+        #cat-image {
+            position: absolute;
+            width: 100%;         /* Allows it to shrink on small screens (phones) */
+            height: 100%;        /* Maintains the natural aspect ratio so it's not squished */
+            object-fit: contain;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 50px;   /* Places buttons near the bottom */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent buttons */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+        .action-button:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+    </style>
+<head>
+
+
+<body>
+    <img id="cat-image" src="" alt="A random cat" />
+
+    <div class="controls">
+        <button id="feed-button" class="action-button">Feed 🐟</button>
+        <button id="pet-button" class="action-button">Pet ✨</button>
+        <button id="bother-button" class="action-button">Bother ✨</button>
+    </div>
+
+<!-- <button id="feed-button" class="action-button">Feed</button>
+<button id="pet-button" class="action-button">Pet</button> -->
+
+
+<script>
+    const catImages = [
+        'images/sleepy.png',
+        'images/eating.png',
+        'images/bored.png'
+    ];
+    const feedButton = document.getElementById('feed-button');
+    const petButton = document.getElementById('pet-button');
+
+    function showRandomCat() {
+        const randomIndex = Math.floor(Math.random() * catImages.length);
+        const selectedImage = catImages[randomIndex];
+        
+        // 3. Apply it to the image element
+        document.getElementById('cat-image').src = selectedImage;
+    }
+
+    window.onload = showRandomCat;
+    // const cat = document.getElementById('cat-image');
+        
+    document.getElementById('feed-button').onclick = () => {
+        cat.src = 'images/eating.png';
+    };
+
+    document.getElementById('pet-button').onclick = () => {
+        cat.src = 'images/sleepy.png';
+    };
+</script>
+
+</body>
