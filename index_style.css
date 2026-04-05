@@ -2,17 +2,24 @@
 * { 
     font-family: 'Press Start 2P', system-ui, cursive;
     color: white;
+    cursor: url('images/star.cur'), auto !important;
     
 }
 
 
+
 body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* This forces the body to be at least the height of the screen */
     text-align: center; /* Standard centering */
     background-image: url("images/warp_still.jpg");
     background-attachment: fixed; /* Optional: keeps the stars still while you scroll */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    /* cursor: url("images/orbital.cur") 16 16, auto; */
+
 }
 
 /* h1 { color: cyan; text-align: center; }
