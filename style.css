@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* { 
+    font-family: 'Press Start 2P', system-ui, cursive;
+    color: rgb(95, 95, 95);
+    border-radius: 5px;
+}
+body {
+    background-color: rgb(228, 255, 228);
+    margin: 0;
+}
+
+.window {
+    position: fixed;
+    background-color: rgb(221, 221, 221);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 25%;
+    width: auto;
+    border-radius: 5px;
+    padding: 5px 10px; /* Space between window edge and the card */
+    min-width: 400px; /* Keeps it from being too skinny */
+
+}
+
+.card {
+    text-align: left;
+    background-color:rgb(235, 235, 235);
+    padding: 10px 50px;
+
+    width: auto;
+    /* max-width: calc(100% - 350px); */
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    background-color:rgb(235, 235, 235);
+    width: 100%;
+    z-index: 2;
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+    
+}
+.header h1, .header p {
+    margin: 5px;
+}
+
+.tab {
+    margin: 4px;
+    border: 0px;
+    width: auto;
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
+.circle-button {
+    border-radius: 50px;
+}
+
+.red {
+   background-color: red;
+}
+.yellow {
+   background-color: yellow;
+}
+.green {
+   background-color: green;
+}
