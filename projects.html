@@ -12,18 +12,7 @@
                 <a href="art.html" class="tab">art</a>
             </div>
 
-            <div id="me-content" class="card">
-                <h1>I'm Sarah</h1>
-                <div class="img-container">
-                    <img id="me-img" src="media/images/blinking.gif">
-                </div>
-                <p></p>
-                <p>I am currently studying computer science and linguistics in university</p>
-            </div>
-
-
-
-            <div id="projects-content" class="card" style="display: none;">
+            <div id="projects-content" class="card">
                 <p>these are my projects</p>
                 <div class="grid">
                     <a href="clothes/">
@@ -54,35 +43,3 @@
 
     </body>
 </html>
-
-<script>
-    function showTab(tabName) {
-        const cards = document.querySelectorAll('.card')
-
-        cards.forEach(card => {
-            card.style.display = 'none';
-        });
-
-        const activeCard = document.getElementById(tabName + '-content');
-        if (activeCard) {
-            activeCard.style.display = 'block';
-        }
-    }
-
-    document.getElementById('me').onclick = () => showTab('me');
-    document.getElementById('projects').onclick = () => showTab('projects');
-    document.getElementById('art').onclick = () => showTab('art');
-
-    
-    function updateImageByTime() {
-        const hour = new Date().getHours();
-        const img = document.getElementById('me-img');
-
-        if (hour <= 6 || hour >= 22) {
-            img.src = "media/images/sleepy.png";
-        } else {
-            img.src = "media/images/blinking.gif";
-        }
-    }
-    updateImageByTime();
-</script>
