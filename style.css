@@ -22,9 +22,15 @@ body {
 
 }
 
-a {
-    text-decoration: none;
+a, 
+button, 
+.tab, 
+.clickable-item
+.circle-button,
+a * { 
+    cursor: url('media/images/pointer.cur') 2 2, pointer !important;
 }
+
 
 
 .img-container {
@@ -33,12 +39,9 @@ a {
     width: auto;
     height: auto;
     align-items: center;
-    margin-bottom: 10px;
 }
 
-.img-container img {
-    max-width: 100%;
-}
+
 
 .window {
     position: fixed;
@@ -94,7 +97,7 @@ a {
 
 .tab:hover {
     background-color: rgb(250, 250, 250);
-    cursor: url('media/images/cursor.cur'), pointer;
+    /* cursor: url('media/images/cursor.cur'), pointer; */
 }
 
 .grid {
@@ -125,7 +128,7 @@ a {
     display: block;
     font-size: 8px;        
     text-align: center;
-    word-wrap: break-word;  /* Prevents long words from breaking the grid */
+    word-wrap: break-word;  
 }
 
 .circle-button {
