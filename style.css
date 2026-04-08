@@ -95,7 +95,7 @@ body {
 .grid a {
     display: flex;
     flex-wrap: wrap;
-    width: calc(25% - 10px); /* change the percentage to alter how many per row */
+    width: calc(20% - 10px); /* change the percentage to alter how many per row */
     height: auto;            
 }
 
