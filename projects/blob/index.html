@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Blob Blind Box</title>
-    <link rel="stylesheet" href="../../style.css">
     <style>
         * { font-family: 'Andale Mono', monospace; }
         * {color: #000000}
         * {text-align: center;}
         
+        body {
+            background-color: rgb(255, 242, 225);
+        }
         img {
             position: absolute;
-            width: 50%;         /* Allows it to shrink on small screens (phones) */
-            height: auto;        /* Maintains the natural aspect ratio so it's not squished */
+            width: 50%; 
+            height: auto;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -20,26 +22,26 @@
         }
         .rarity {
             position: absolute;
-            right: 40px;          /* Distance from the right edge */
-            top: 50%;             /* Start at the middle vertically */
-            transform: translateY(-50%); /* Perfectly center it vertically */
+            right: 40px;          
+            top: 50%;   
+            transform: translateY(-50%);
             
             display: flex;
             flex-direction: column;
-            gap: 10px;            /* Spacing between items */
+            gap: 10px;            
             width: 200px;
-            background-color: rgba(255, 255, 255, 0.5); /* Optional: semi-transparent bg */
+            background-color: rgba(255, 255, 255, 0.5); 
             padding: 20px;
             border-radius: 15px;
-            text-align: right;    /* Aligns text to the right for a clean look */
+            text-align: right;    
         }
         button-hidden {
             color: rgb(255, 242, 225);
             border-radius: 30px;
             position: absolute;
-            left: 20px;          /* Distance from the right edge */
-            bottom: 20px;             /* Start at the middle vertically */
-            transform: translateY(-50%); /* Perfectly center it vertically */
+            left: 20px; 
+            bottom: 20px;
+            transform: translateY(-50%);
             cursor: pointer;
 
         }
@@ -63,15 +65,12 @@
 
 <body>
 
-    <div class="window">
-
     <img id="blob-img" src="images/box.png"/>
     <button id="open-box">Open Blind Box</button>
     <div class="rarity">
         <h3>Rarity</h3>
-        <p>Forest Blob: 30%</p>
         <p>Water Blob: 28%</p>
-        <p>Water Blob: 25%</p>
+        <p>Forest Blob: 25%</p>
         <p>Bubblegum Blob: 20%</p>
         <p>Butter Blob: 15%</p>
         <p>Lavender Blob: 5%</p>
@@ -79,8 +78,6 @@
         <p>Shy Blob: 2%</p>
     </div>
     <button-hidden id="shy-button">I'm hiding...</button-hidden>
-
-    </div>
 
 </body>
 
@@ -141,12 +138,9 @@
             }
         });
 
-        // 3. Pick from the pool (which now has 100 items)
         const randomIndex = Math.floor(Math.random() * pool.length);
         const selectedBlob = pool[randomIndex];
         blobImg.src = selectedBlob;
-        // alert('You opened a new Blob!');
-        // Here you could change the img src to a different blob
         btn.textContent = "You got " + selectedBlob.replace(/images\/|\.gif/g, "").replace("_", " ") + "!";
         btn.disabled = true;
     }, {once: true});
