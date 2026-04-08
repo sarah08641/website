@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<style>
+    #me-img[data-time="night"]:hover {
+        content: url('media/images/awake.png');
+    }
+</style>
 <html>
     <head>
         <title>Sarah site</title>
@@ -7,7 +12,7 @@
     <body>
         <div class="window">
             <div class="header">
-                <a href="/" class="tab">me</a>
+                <a href="/" class="tab selected">me</a>
                 <a href="projects/" class="tab">projects</a>
                 <a href="art/" class="tab">art</a>
             </div>
@@ -34,8 +39,10 @@
 
         if (hour <= 6 || hour >= 22) {
             img.src = "media/images/sleepy.png";
+            img.setAttribute('data-time', 'night');
         } else {
             img.src = "media/images/blinking.gif";
+            img.setAttribute('data-time', 'day');
         }
     }
     updateImageByTime();
