@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Blob Blind Box</title>
+    <link rel="stylesheet" href="../../style.css">
     <style>
         * { font-family: 'Andale Mono', monospace; }
         * {color: #000000}
         * {text-align: center;}
         
-        body {
-            background-color: rgb(255, 242, 225);
-        }
         img {
             position: absolute;
             width: 50%;         /* Allows it to shrink on small screens (phones) */
@@ -65,6 +63,8 @@
 
 <body>
 
+    <div class="window">
+
     <img id="blob-img" src="images/box.png"/>
     <button id="open-box">Open Blind Box</button>
     <div class="rarity">
@@ -79,6 +79,8 @@
         <p>Shy Blob: 2%</p>
     </div>
     <button-hidden id="shy-button">I'm hiding...</button-hidden>
+
+    </div>
 
 </body>
 
