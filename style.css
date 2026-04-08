@@ -11,7 +11,8 @@
     color: rgb(95, 95, 95);
     border-radius: 5px;
     box-sizing: border-box; 
-    cursor: url('media/images/startrek.cur'), auto !important;
+    cursor: url('media/images/startrek.cur'), auto;
+    
 }
 body {
     background-color: rgb(228, 255, 228);
@@ -29,10 +30,14 @@ a {
 .img-container {
     display: flex;
     justify-content: center;
-
     width: auto;
     height: auto;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.img-container img {
+    max-width: 100%;
 }
 
 .window {
@@ -84,12 +89,12 @@ a {
 }
 
 .tab.selected{
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(255, 255, 255);
 }
 
 .tab:hover {
     background-color: rgb(250, 250, 250);
-    cursor: pointer;
+    cursor: url('media/images/cursor.cur'), pointer;
 }
 
 .grid {
