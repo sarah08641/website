@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <!-- Head is information about the website i think -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sarah's Site</title>
+    <link rel="stylesheet" href="index_style.css"
+</head>
+<!-- Body is like where content goes -->
+<body>    
+<h1>Welcome to my page!</h1>
+
+<audio id="music" src="media/audio/Genesis.mp3" loop></audio>
+<button id="warp-button" class="warp-button">
+    <img src="media/images/warp_speed.gif" alt="Engage Warp Speed">
+</button>
+
+<div class="footer">
+    <div class="footer-line">
+    <a href="clothes/" class="image-button">
+        <img src="media/images/wardrobe.gif" alt="Wardrobe Styler">
+    </a>
+    <a href="phon/" class="image-button">
+        <img src="media/images/phonology.gif" alt="French Phonology Parser">
+    </a>
+    </div>
+    <div class="footerline">
+    <a href="blob/" class="image-button">
+        <img src="media/images/blob_box.gif" alt="Blob Box">
+    </a>
+    </div>
+</div>
+
+
+<script>
+const btn = document.getElementById('warp-button');
+const music = document.getElementById('music');
+
+btn.addEventListener('click', function() {
+    // 1. Change the background
+    document.body.style.backgroundImage = "url('media/images/warp.gif')";
+    
+    // 2. Play the music
+    music.play().catch(error => {
+        console.log("Music couldn't play yet: ", error);
+    });
+
+
+});
+</script>
+
+</body>
+</html>
