@@ -788,13 +788,13 @@ fsa = {
 def output_text(b: bool) -> str:
     return "Valid French Word" if b else "Not a Valid French Word"
 
-def translate_english(event):
-    input_text = document.querySelector("#english")
-    english = input_text.value
+def start_parse(event):
+    input_text = document.querySelector("#input")
+    text = input_text.value
     output_div = document.querySelector("#output")
-    output_div.innerText = parse(fsa, english)
+    output_div.innerText = parse(fsa, text)
 
-    ipa_input = window.document.getElementById("english").value
+    ipa_input = window.document.getElementById("input").value
     # Example: just echoing the text for now
     #  Replace with actual translation function
     result_bool = parse(fsa, ipa_input)
