@@ -7,52 +7,50 @@
         <link rel="stylesheet" href="https://pyscript.net/releases/2024.10.1/core.css">
         <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
     </head>
-    <style>
+<style>
+    .header-card {
+        background: #ffffff;
+        border: 2px solid #e0e0e0;
+        border-radius: 2px;
+        padding: 30px;
+        margin-bottom: 40px;
+        max-width: 700px;
+        /* box-shadow: 0 10px 20px rgba(0,0,0,0.05); */
+        text-align: center;
+    }
 
-/* Container for the top info */
-.header-card {
-    background: #ffffff;
-    border: 2px solid #e0e0e0;
-    border-radius: 2px;
-    padding: 30px;
-    margin-bottom: 40px;
-    max-width: 700px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    text-align: center;
-}
+    .header-card h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin: 0 0 10px 0;
+        letter-spacing: -1px;
+    }
 
-.header-card h1 {
-    color: #2c3e50;
-    font-size: 2.5rem;
-    margin: 0 0 10px 0;
-    letter-spacing: -1px;
-}
+    .header-card h2 {
+        color: #7f8c8d;
+        font-weight: 400;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
 
-.header-card h2 {
-    color: #7f8c8d;
-    font-weight: 400;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
+    .example-tag {
+        color: #3c3c3c;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 0.95rem;
+        border: 1px solid #747474;
+    }
 
-.example-tag {
-    color: #3c3c3c;
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 0.95rem;
-    border: 1px solid #747474;
-}
-
-.info-note {
-    font-size: 0.85rem;
-    color: #94a3b8;
-    margin-top: 15px;
-    font-style: italic;
-}
+    .info-note {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin-top: 15px;
+        font-style: italic;
+    }
 
 
-        body {
+    body {
         font-family: Arial, sans-serif;
         display: flex;
         flex-direction: column;
@@ -62,121 +60,91 @@
         margin: 0;
         padding: 20px;
         background: #fafafa;
-        }
+    }
 
-        h1 {
+    h1 {
         margin-bottom: 20px;
-        }
+    }
 
-        #english {
-        font-size: 1.2rem;
-        padding: 10px;
-        width: 60%;
-        margin-bottom: 30px;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        }
 
-        /* #output {
-            margin-top: 20px;
-            padding: 15px;
-            width: 60%;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.3s ease;
-            display: none; 
-        } */
 
-        .section {
+    .section {
         margin-bottom: 30px;
         text-align: center;
-        }
+    }
 
-        .section h2 {
+    .section h2 {
         margin-bottom: 10px;
         font-size: 1.2rem;
         color: #444;
-        }
+    }
 
-        .keyboard-container {
+    .keyboard-container {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
         gap: 40px; /* Space between the two keyboards */
         flex-wrap: wrap; /* Allows stacking if the screen is too narrow */
 
-        }
+    }
 
-        /* Optional: Make each section take up equal space or have a max width */
-        .section {
+    .section {
         flex: 1;
         min-width: 300px;
-        }
+    }
 
-        .keyboard-row {
+    .keyboard-row {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 8px;
         margin-bottom: 10px;
-        }
+    }
 
-        .key {
+    .key {
         background: #f4f4f9;
         border: 2px solid #ccc;
         border-radius: 2px;
-        /* padding: 10px 14px; */
         font-size: 1.2rem;
         cursor: pointer;
-        transition: all 0.2s ease-in-out;
+        /* transition: all 0.2s ease-in-out; */
+        width: 30px;
+        height: 30px;
+        /* height: 20px; */
 
         box-shadow: 0 4px 0 #929292; 
         transition: all 0.1s;
         position: relative;
         outline: none;
-        }
-
-        /* .key:hover {
-        background: #e0e0f7;
-        border-color: #888;
-        transform: translateY(-2px);
-        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-        } */
-
-        .key:active {
+    }
+    .key:active {
         background: #f4f4f9;
         transform: translateY(4px);
-        /* box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); */
-        }
+    }
 
-        .nav-button {
-            display: inline-block;
-            /* padding: 12px 24px; */
-            border-radius: 2px;
-            border: 1px solid #000;
-            transition: 0.3s;
-            margin: 10px; /* Added some breathing room around the button */
-            cursor: pointer;
+    .nav-button {
+        display: inline-block;
+        border-radius: 2px;
+        border: 1px solid #000;
+        transition: 0.3s;
+        margin: 10px; /* Added some breathing room around the button */
+        cursor: pointer;
 
-            box-shadow: 0 4px 0 #929292; 
-            transition: all 0.1s;
-            position: relative;
-            outline: none;
-        }
+        box-shadow: 0 4px 0 #929292; 
+        transition: all 0.1s;
+        position: relative;
+        outline: none;
+    }
 
-        .nav-button:active {
-            /* Move the button down 4 pixels */
-            transform: translateY(4px);
-            /* Reduce the shadow so it looks like it hit the floor */
-            box-shadow: 0 2px 0 #303030;
-            }
+    .nav-button:active {
+        transform: translateY(4px);
+        box-shadow: 0 2px 0 #303030;
+    }
 
-        .section {
+    .section {
         max-width: 800px;
-        }
-    </style>
+    }
+</style>
     <body>
 
 
@@ -199,7 +167,7 @@
 
 <div class="input-zone">
     <input type="text" name="input" id="input" placeholder="Enter IPA symbols..." />
-    <button py-click="parse" class="nav-button">evaluate</button> 
+    <button py-click="start_parse" class="nav-button">evaluate</button> 
 </div>
 
 
@@ -297,9 +265,9 @@
 
         <script>
         const input = document.getElementById("input");
-        const nonoWords = [
+        // const nonoWords = [
 
-        ]
+        // ]
         document.querySelectorAll(".key").forEach(key => {
             key.addEventListener("click", () => {
             // insert symbol at cursor instead of just appending
