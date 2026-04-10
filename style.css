@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@media (max-width: 600px) {
+  /* Change from 3 columns to 1 column when the window is small */
+  .column {
+    width: 100%;
+  }
+}
+
+* { 
+    font-family: 'Press Start 2P', system-ui, cursive;
+    color: rgb(95, 95, 95);
+    border-radius: 5px;
+    box-sizing: border-box; 
+    cursor: url('media/images/startrek.cur'), auto;
+    
+}
+body {
+    background-color: rgb(228, 255, 228);
+    margin: 0;
+    min-width: 400px; 
+    min-height: 400px; 
+
+}
+
+a, 
+button, 
+.tab, 
+.clickable-item
+.circle-button,
+a * { 
+    cursor: url('media/images/pointer.cur') 2 2, pointer !important;
+}
+
+
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    align-items: center;
+}
+
+
+
+.window {
+    position: fixed;
+    background-color: rgb(221, 221, 221);
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: 90%;
+    border-radius: 5px;
+    padding: 5px 10px; 
+    min-width: 400px; 
+    min-height: 400px; 
+    
+
+}
+
+.card {
+    text-align: left;
+    background-color:rgb(235, 235, 235);
+    padding: 10px 50px;
+    width: auto;
+    height: calc(100% - 60px);
+    overflow: hidden;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    background-color:rgb(235, 235, 235);
+    width: 100%;
+    z-index: 2;
+    margin-top: 5px; 
+    margin-bottom: 5px; 
+    
+}
+.header h1, .header p {
+    margin: 5px;
+}
+
+.tab {
+    font-size: 20px;
+    margin: 4px;
+    border: 0px;
+    width: auto;
+}
+
+.tab.selected{
+    background-color: rgb(255, 255, 255);
+}
+
+.tab:hover {
+    background-color: rgb(250, 250, 250);
+    /* cursor: url('media/images/cursor.cur'), pointer; */
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: flex-start; 
+    gap: 20px; 
+    margin-top: 20px;
+    padding: 0;
+}
+
+
+.grid a {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(20% - 10px); /* change the percentage to alter how many per row */
+    height: auto;            
+}
+
+.grid a img {
+    display: block;
+    height: 64px;
+    margin: 0 auto;
+}
+
+.grid a span {
+    width: 100%;
+    display: block;
+    font-size: 8px;        
+    text-align: center;
+    word-wrap: break-word;  
+}
+
+.circle-button {
+    border-radius: 50px;
+}
+
+.red {
+   background-color: red;
+}
+.yellow {
+   background-color: yellow;
+}
+.green {
+   background-color: green;
+}

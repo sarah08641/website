@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sarah site</title>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            .img-container.gallery {
+                display: flex;
+                flex-direction: column; 
+                justify-content: center;
+                align-items: center;
+                height: 100%; 
+                flex-shrink: 0; 
+                width: auto;
+                margin: 0 auto;
+                scroll-snap-align: start;
+            } 
+
+            .img-container.gallery img {
+                max-height: 90%; 
+                max-width: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                display: block;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="window">
+            <div class="header">
+                <a href=".." class="tab">me</a>
+                <a href="../projects" class="tab">projects</a>
+                <a href="." class="tab selected">art</a>
+            </div>
+
+
+            <div id="art-content" class="card">
+                <p>all art on this page is created by me!</p>
+                <div class="img-container gallery">
+                    <img src="images/night_cat.jpg">
+                    <p>night cat</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/snowy_cat.jpg">
+                    <p>snowy cat</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/robot.jpg">
+                    <p>evil robot</p>
+
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/guy1.jpg">
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/guy2.jpg">
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/guy3.jpg">
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/guy4.jpg">
+                    <p>a bunch of creatures or whatever</p>
+
+                </div>
+                <div class="img-container gallery">
+                    <img src="../media/images/awake.png">
+                    <p>me awake</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="../media/images/sleepy.png">
+                    <p>me sleepy</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="../media/images/blinking.gif">
+                    <p>me blinking</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/blinking2.gif">
+                    <p>me blinking again cause I do that a lot</p>
+                </div>
+                <div class="img-container gallery">
+                    <img src="images/stuffed_thing.jpg">
+                    <p>little stuffed animal I made</p>
+                </div>
+                
+                
+            </div>
+
+        </div>
+
+
+    </body>
+</html>

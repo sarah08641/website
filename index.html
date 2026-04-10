@@ -1,57 +1,49 @@
 <!DOCTYPE html>
+<style>
+    #me-img[data-time="night"]:hover {
+        content: url('media/images/awake.png');
+    }
+</style>
 <html>
-    <!-- Head is information about the website i think -->
+    <head>
+        <title>Sarah site</title>
+        <link rel="stylesheet" href="style.css"
+    </head>
+    <body>
+        <div class="window">
+            <div class="header">
+                <a href="." class="tab selected">me</a>
+                <a href="projects/" class="tab">projects</a>
+                <a href="art/" class="tab">art</a>
+            </div>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sarah's Site</title>
-    <link rel="stylesheet" href="index_style.css"
-</head>
-<!-- Body is like where content goes -->
-<body>
+            <div id="me-content" class="card">
+                <h1>I'm Sarah</h1>
+                <div class="img-container">
+                    <img id="me-img" src="media/images/blinking.gif">
+                </div>
+                <p></p>
+                <p>I am currently studying computer science and linguistics in university</p>
+            </div>
 
-    
-<h1>Welcome to my page!</h1>
-
-<audio id="music" src="Genesis.mp3" loop></audio>
-<button id="warp-button" class="warp-button">
-    <img src="images/warp_speed.gif" alt="Engage Warp Speed">
-</button>
-<!-- <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZiaGw4NHNsNjViNjM4cTNxdGNqdGIzZnB3YXVpNWd6MGp5dXQzayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/zSzn5sWY8xKUTpebir/giphy.gif" /> -->
-
-<div class="footer">
-    <a href="clothes/" class="image-button">
-        <img src="images/wardrobe.gif" alt="Wardrobe Styler">
-    </a>
-    <a href="phon/" class="image-button">
-        <img src="images/phonology.gif" alt="French Phonology Parser">
-    </a>
-</div>
+        </div>
 
 
-
-
-<!-- <img src="https://t3.ftcdn.net/jpg/02/64/27/90/360_F_264279006_WDXxV3OHjAOoHqH7iiLDrg23p0947g7U.jpg" style="width: 100%; max-width: 100%; height: auto;"> -->
-<!-- <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9892934f-6880-48f7-82ff-918430f875c9/d9vllht-88fd3c58-3ee1-4c5c-b213-20bf199c9abb.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzk4OTI5MzRmLTY4ODAtNDhmNy04MmZmLTkxODQzMGY4NzVjOVwvZDl2bGxodC04OGZkM2M1OC0zZWUxLTRjNWMtYjIxMy0yMGJmMTk5YzlhYmIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XtNPPmuipDGMzQAK163_W0zVqgZPbDk4c6Sf3-DdnYs"/> -->
-<!-- <img src="https://64.media.tumblr.com/8c9fb3cfabe031d7c8fb0dffe55ed70f/tumblr_n0qekgH4qk1s5jjtzo1_400.gif"/> -->
-<script>
-const btn = document.getElementById('warp-button');
-const music = document.getElementById('music');
-
-btn.addEventListener('click', function() {
-    // 1. Change the background
-    document.body.style.backgroundImage = "url('images/warp.gif')";
-    
-    // 2. Play the music
-    music.play().catch(error => {
-        console.log("Music couldn't play yet: ", error);
-    });
-
-    // Optional: Change the button text once clicked
-    // btn.innerHTML = "Warp Speed Engaged!";
-});
-</script>
-
-</body>
+    </body>
 </html>
+
+<script>    
+    function updateImageByTime() {
+        const hour = new Date().getHours();
+        const img = document.getElementById('me-img');
+
+        if (hour <= 6 || hour >= 22) {
+            img.src = "media/images/sleepy.png";
+            img.setAttribute('data-time', 'night');
+        } else {
+            img.src = "media/images/blinking.gif";
+            img.setAttribute('data-time', 'day');
+        }
+    }
+    updateImageByTime();
+</script>
