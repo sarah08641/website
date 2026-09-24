@@ -25,7 +25,7 @@ body {
 a, 
 button, 
 .tab, 
-.clickable-item
+.clickable-item,
 .circle-button,
 a * { 
     cursor: url('media/images/pointer.cur') 2 2, pointer !important;
@@ -114,6 +114,13 @@ a * {
     display: flex;
     flex-wrap: wrap;
     width: calc(20% - 10px); /* change the percentage to alter how many per row */
+    height: auto;            
+}
+
+.grid img {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(50% - 10px); /* change the percentage to alter how many per row */
     height: auto;            
 }
 
